@@ -1,0 +1,34 @@
+      * "F" (file) specs define files and other i/o devices
+     FARMstF1   IF   E        K     Disk    Rename(ARMST:RARMST)
+
+      * "D" specs are used to define variables and parameters
+      * The "prototype" for the program is in a separate file
+      * allowing other programs to call it
+      /copy cust_pr
+      * The "procedure interface" describes the *ENTRY parameters
+     D getCustInf      PI
+     D  pCusNo                        6p 0   const
+     D  pName                        30a
+     D  pAddr1                       30a
+     D  pAddr2                       30a
+     D  pCity                        25a
+     D  pState                        2a
+     D  pZip                         10a
+      /free
+        // The "chain" command is used for random access of a keyed file
+        chain pCusNo ARMstF1;
+
+        // If a record is found, move fields from the file into parameters
+        if %found;
+           pName  = ARNm01;
+           pAddr1 = ARAd01;
+           pAddr2 = ARAd02;
+           pCity  = ARCy01;
+           pState = ARSt01;
+           pZip   = ARZp15;
+        endif;
+
+      // RPG makes use of switches.  One switch "LR" originally stood for "last record"
+      // LR actually flags the program and its dataspace as removable from memory.
+        *InLR = *On;
+      /end-free

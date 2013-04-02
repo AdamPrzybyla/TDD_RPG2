@@ -1,0 +1,30 @@
+      * RPG IV no longer requires the use of the *INLR indicator to terminate a program.
+      * by using the MAIN keyword on the "H" (Header) spec, and identifying the "main" or
+      * entry procedure name, the program will begin and end normally without using the
+      * decades-old RPG Cycle and instead a more "C like" begin and end logic.
+     H  MAIN(getCustInf)
+      * "D" specs are used to define variables and parameters
+      * The "prototype" for the program is in a separate file
+      * allowing other programs to call it
+      /copy cust_pr
+      * The "procedure interface" describes the *ENTRY parameters
+     P getCustInf      B
+     D getCustInf      PI
+     D  pCusNo                        6p 0   const
+     D  pName                        30a
+     D  pAddr1                       30a
+     D  pAddr2                       30a
+     D  pCity                        25a
+     D  pState                        2a
+     D  pZip                         10a
+      /free
+        exec sql select arName, arAddr1, arAdd2, arCity, arStte, arZip
+                 into  :pName, :pAddr1, :pAddr2, :pCity, :pState, :pZip
+                 from   ARMstF1
+                 where  arCNum = :pCusNo
+                 for fetch only
+                 fetch first 1 row only
+                 optimize for 1 row
+                 with CS;
+      /end-free
+     P GetCustInf      E

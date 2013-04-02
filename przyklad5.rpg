@@ -1,0 +1,22 @@
+     H main(GetCustInf)
+     D ARMSTF1       E DS
+     P GetCustInf      B
+     D GetCustInf      PI                  extpgm('CUS001')
+     D  inCusNo                            like(arCNum) const
+     D  outName                            like(arName)
+     D  outAddr1                           like(arAdd1)
+     D  outAddr2                           like(arAdd2)
+     D  outCity                            like(arCity)
+     D  outState                           like(arStte)
+     D  outZip                             like(arZip)
+      /free
+       exec sql select arName, arAdd1, arAdd2, arCity, arStte, arZip
+                into  :outName, :outAddr1, :outAddr2, :outCity, :outState,
+                      :outZip
+                from   ARMSTF1
+                where  arCNum = :inCusNo
+                fetch first 1 row only
+                with CS
+                use currently committed;
+      /end-free
+     P GetCustInf      E

@@ -1,0 +1,20 @@
+   Ogólny opis języka znajdziesz w [1]http://en.wikipedia.org/wiki/IBM_RPG,
+   są tam też dość dobre przykłady kodu RPG na początek.
+
+   Podręcznik języka udostępnia IBM pod adresem:
+   [2]http://pic.dhe.ibm.com/infocenter/iseries/v6r1m0/topic/rzasc/sc092507.pdf
+
+
+
+   Interesują nas takie tokeny jak:
+
+   1.       Słowo kluczowe samego języka (np. if, endif, itd.)
+
+   2.       Nazwy funkcji
+
+   3.       Bloki SQL
+
+   4.       Wywołania innych programów
+
+   5.       Zmienne itd
+

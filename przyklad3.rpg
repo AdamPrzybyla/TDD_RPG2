@@ -1,0 +1,9 @@
+create table armstf1
+(arcnum decimal(7,0),
+ arname char(30),
+ aradd1 char(30),
+ aradd2 char(30),
+ arcity char(25),
+ arstte char(2),
+ arzip  char(10))
+

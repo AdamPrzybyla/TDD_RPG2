@@ -1,0 +1,4 @@
+*.tokens
+*.pyc
+*Lexer.py
+*Parser.py

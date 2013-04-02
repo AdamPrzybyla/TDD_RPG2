@@ -1,0 +1,46 @@
+      * Historically RPG is columnar in nature, though free-formatting
+      * is allowed under particular circumstances.
+      * The purpose of various lines code are determined by a
+      * letter code in column 6.
+      * An asterisk (*) in column 7 denotes a comment line
+
+      * "F" (file) specs define files and other i/o devices
+     F ARMstF1   IF   E       K     Disk    Rename(ARMST:RARMST)
+      
+
+      * "D" specs are used to define variables
+     D pCusNo          S              6p 
+     D pName           S             30a
+     D pAddr1          S             30a
+     D pAddr2          S             30a
+     D pCity           S             25a
+     D pState          S              2a
+     D pZip            S             10a
+
+      * "C" (calculation) specs are used for executable statements
+      * Parameters are defined using plist and parm opcodes
+     C     *entry        plist
+     C                   parm                    pCusNo
+     C                   parm                    pName
+     C                   parm                    pAddr1
+     C                   parm                    pAddr2
+     C                   parm                    pCity
+     C                   parm                    pState
+     C                   parm                    pZip
+
+      * The "chain" command is used for random access of a keyed file
+     C     pCusNo        chain     ARMstF1
+
+      * If a record is found, move fields from the file into parameters
+     C                   if        %found
+     C                   eval      pName  = ARNm01
+     C                   eval      pAddr1 = ARAd01
+     C                   eval      pAddr2 = ARAd02
+     C                   eval      pCity  = ARCy01
+     C                   eval      pState = ARSt01
+     C                   eval      pZip   = ARZp15
+     C                   endif
+
+      * RPG makes use of switches.  One switch "LR" originally stood for "last record"
+      * LR actually flags the program and its dataspace as removable from memory.
+     C                   eval      *InLR = *On
