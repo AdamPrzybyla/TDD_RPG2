@@ -90,6 +90,17 @@ class test_rpg(unittest.TestCase):
 		wynik=parser.deklaracja_end_free()
 		self.assertTrue(wynik)
 
+	def test_deklaracji_k(self):
+		s='D '
+		parser=parserek(s)
+		wynik=parser.deklaracja_k()
+		self.assertTrue(wynik)
+
+	def test_deklaracji_funkcji(self):
+		s='     D Switch          PI'
+		parser=parserek(s)
+		wynik=parser.deklaracja_funkcji()
+
 if __name__ == '__main__':
 	unittest.main()
 
