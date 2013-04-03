@@ -9,7 +9,6 @@ program:		(
 			| 	deklaracja_end_free
 			) NL )+ ;
 
-//deklaracja_funkcji returns [w]:		wciecie	DEKLARACJA_K p=NAZWA ' '* PI {w=p};
 deklaracja_funkcji returns [w]:		wciecie	DEKLARACJA_K p=NAZWA PI {w=p};
 deklaracja_free returns [w]:		wciecie	p=FREE_K {w=p};
 deklaracja_end_free returns [w]:	wciecie	p=END_FREE_K {w=p}; 
