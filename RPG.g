@@ -21,6 +21,68 @@ komentarz_opis returns [w]:		p=KOMENTARZ {w=p};
 wciecie returns [w]:			p=WCIECIE  {w=p};
 
 
+ABS_SK:				'%ABS';
+ADDR_SK:			'%ADDR';
+ALLOC_SK:			'%ALLOC';
+CHAR_SK:			'%CHAR';
+CHECK_SK:			'%CHECK';
+CHECKR_SK:			'%CHECKR';
+DATE_SK:			'%DATE';
+DAYS_SK:			'%DAYS';
+DEC_SK:				'%DEC';
+DECH_SK:			'%DECH';
+DECPOS_SK:			'%DECPOS';
+DIFF_SK:			'%DIFF';
+DIV_SK:				'%DIV';
+EDITC_SK:			'%EDITC';
+EDITFLT_SK:			'%EDITFLT';
+EDITW_SK:			'%EDITW';
+ELEM_SK:			'%ELEM';
+EOF_SK:				'%EOF';
+EQUAL_SK:			'%EQUAL';
+ERROR_SK:			'%ERROR';
+FLOAT_SK:			'%FLOAT';
+FOUND_SK:			'%FOUND';
+GRAPH_SK:			'%GRAPH';
+HOURS_SK:			'%HOURS';
+INT_SK:				'%INT';
+INTH_SK:			'%INTH';
+LEN_SK:				'%LEN';
+LOOKUPxx_SK:			'%LOOKUPxx';
+MINUTES_SK:			'%MINUTES';
+MONTHS_SK:			'%MONTHS';
+MSECONDS_SK:			'%MSECONDS';
+NULLIND_SK:			'%NULLIND';
+OCCUR_SK:			'%OCCUR';
+OPEN_SK:			'%OPEN';
+PADDR_SK:			'%PADDR';
+PARMS_SK:			'%PARMS';
+REALLOC_SK:			'%REALLOC';
+REM_SK:				'%REM';
+REPLACE_SK:			'%REPLACE';
+SCAN_SK:			'%SCAN';
+SECONDS_SK:			'%SECONDS';
+SHTDN_SK:			'%SHTDN';
+SIZE_SK:			'%SIZE';
+SQRT_SK:			'%SQRT';
+STATUS_SK:			'%STATUS';
+STR_SK:				'%STR';
+SUBDT_SK:			'%SUBDT';
+SUBST_SK:			'%SUBST';
+THIS_SK:			'%THIS';
+TIME_SK:			'%TIME';
+TIMESTAMP_SK:			'%TIMESTAMP';
+TLOOKUPxx_SK:			'%TLOOKUPxx';
+TRIM_SK:			'%TRIM';
+TRIML_SK:			'%TRIML';
+TRIMR_SK:			'%TRIMR';
+UCS2_SK:			'%UCS2';
+UNS_SK:				'%UNS';
+UNSH_SK:			'%UNSH';
+XFOOT_SK:			'%XFOOT';
+XLATE_SK:			'%XLATE';
+YEARS_SK:			'%YEARS';
+
 WCIECIE_LUB_KOMENTARZ
 		: {self.getCharPositionInLine()==0}? ( WCIECIE ) => WCIECIE { $type=WCIECIE; }
 		| ( DEKLARACJA_K ) => DEKLARACJA_K { $type=DEKLARACJA_K; }
@@ -60,3 +122,5 @@ fragment
 SPACJA:				' ';
 
 NL:				'\n';
+
+
