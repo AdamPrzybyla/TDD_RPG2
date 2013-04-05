@@ -14,13 +14,6 @@ def plik_ciag_znakow(s):
         output.seek(0)
         return output
 
-def normalizator_wiki(w):
-        wynik=[]
-        f=plik_ciag_znakow(w.text)
-        o=codecs.getreader('utf-8')(f)
-        l=TDDczysciciel.Lexer(o)
-
-
 def parserek(znaki):
 	char_stream = antlr3.ANTLRStringStream(znaki)
 	lexer = RPGLexer(char_stream)
