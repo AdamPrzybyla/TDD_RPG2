@@ -21,7 +21,6 @@ def parserek(znaki):
 	parser = RPGParser(tokens)
 	return parser
 
-
 class test_rpg(unittest.TestCase):
 	def setUp(self):
 		pass
